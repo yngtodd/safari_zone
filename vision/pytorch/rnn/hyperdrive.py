@@ -33,11 +33,15 @@ def objective(space):
       Simple accuracy on 10000 test images.
     """
     hidden_size, num_layers, learning_rate = space
+    print(hidden_size)
+    print(num_layers)
+    sequence_length = hidden_size
+    input_size = hidden_size
 
     # Hyper Parameters
     num_epochs = 2
 
-    rnn = RNN(hidden_size, num_layers)
+    rnn = RNN(hidden_size, input_size, num_layers)
     rnn.cuda()
 
     # Loss and Optimizer

@@ -1,5 +1,6 @@
 import torchvision.datasets as dsets
 import torchvision.transforms as transforms
+import torch
 
 
 batch_size = 100
@@ -8,7 +9,7 @@ batch_size = 100
 train_dataset = dsets.MNIST(root='./data/',
                             train=True,
                             transform=transforms.ToTensor(),
-                            download=True)
+                            download=False)
 
 test_dataset = dsets.MNIST(root='./data/',
                            train=False,

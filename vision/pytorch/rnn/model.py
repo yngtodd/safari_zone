@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from torch.autograd import Variable
 
 
 # RNN Model (Many-to-One)
@@ -13,8 +14,8 @@ class RNN(nn.Module):
 
     def forward(self, x):
         # Set initial states
-        h0 = Variable(torch.zeros(self.num_layers, x.size(0), self.hidden_size).cuda())
-        c0 = Variable(torch.zeros(self.num_layers, x.size(0), self.hidden_size).cuda())
+        h0 = Variable(torch.zeros(self.num_layers, x.size(0), self.hidden_size))
+        c0 = Variable(torch.zeros(self.num_layers, x.size(0), self.hidden_size))
 
         # Forward propagate RNN
         out, _ = self.lstm(x, (h0, c0))
